@@ -1,0 +1,26 @@
+<button (click)="displaySignUp()">Sign Up</button>
+<button (click)="displaySignIn()">Sign In</button>
+
+<div *ngIf="!isSignedIn">
+  <div [hidden]="!isClickSignUp">
+    <h2>Sign up</h2>
+    <input type="email" #emailSignup/>
+    <input type="password" #passwordSignup/>
+    <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign up</button>
+  </div>
+</div>
+
+<div *ngIf="!isSignedIn">
+  <div [hidden]="!isClickSignIn">
+    <h2>Sign In</h2>
+    <input type="email" #email/>
+    <input type="password" #password/>
+    <button (click)="onSignin(email.value,password.value)">Sign in</button>
+  </div>
+</div>
+
+<button type="button" class="btn btn-primary">Primary</button>
+
+<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
+
+
