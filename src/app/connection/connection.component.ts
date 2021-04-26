@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -13,24 +14,30 @@ export class ConnectionComponent implements OnInit {
   isClickSignUp = false;
   isClickSignIn = false;
 
-  constructor(public firebaseService : FirebaseService){}
+  constructor(public firebaseService : FirebaseService, private router: Router){}
+
   ngOnInit(): void{
-    if(localStorage.getItem('user')!== null)
-    this.isSignedIn= true
-    else
-    this.isSignedIn = false
+    if(localStorage.getItem('user')!== null){
+      this.isSignedIn = true
+    } else {
+      this.isSignedIn = false
+    }
   }
 
-  async onSignup(email:string,password:string){
+  async onSignup(email:string, password:string){
     await this.firebaseService.signup(email,password)
-    if(this.firebaseService.isLoggedIn)
-    this.isSignedIn = true
+    if(this.firebaseService.isLoggedIn){
+      this.isSignedIn = true;
+      this.router.navigate(['home']);
+    }
   }
 
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password)
-    if(this.firebaseService.isLoggedIn)
-    this.isSignedIn = true
+    if(this.firebaseService.isLoggedIn){
+      this.isSignedIn = true;
+      this.router.navigate(['home']);
+    }
   }
 
   handleLogout(){
