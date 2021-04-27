@@ -2,6 +2,7 @@ import { FirebaseService } from './services/firebase.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire'
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { StatsComponent } from './stats/stats.component';

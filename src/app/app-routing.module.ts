@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { AppComponent } from './app.component';
 import { NgModule, Component } from '@angular/core';
@@ -8,7 +9,7 @@ import { StatsComponent } from '../app/stats/stats.component';
 const routes: Routes = [
   { path: '', component: ConnectionComponent},
   { path: 'stats', component: StatsComponent },
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({

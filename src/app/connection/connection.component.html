@@ -1,25 +1,17 @@
-<button (click)="displaySignUp()">Sign Up</button>
-<button (click)="displaySignIn()">Sign In</button>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">
+    <img src="../../assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="xsell">
+    Xsell
+  </a>
+</nav>
 
-<div *ngIf="!isSignedIn">
-  <div [hidden]="!isClickSignUp">
-    <h2>Sign up</h2>
-    <input type="email" #emailSignup/>
-    <input type="password" #passwordSignup/>
-    <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign up</button>
-  </div>
-</div>
-
-<div *ngIf="!isSignedIn">
-  <div [hidden]="!isClickSignIn">
-    <h2>Sign In</h2>
+<div *ngIf="!isSignedIn" class="card">
+  <div class="card-body">
+    <h5 class="card-title">Login</h5>
     <input type="email" #email/>
     <input type="password" #password/>
-    <button (click)="onSignin(email.value,password.value)">Sign in</button>
+    <button (click)="onSignin(email.value,password.value)" type="button" class="btn btn-success">Sign In</button>
   </div>
 </div>
-
-
-<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
 
 

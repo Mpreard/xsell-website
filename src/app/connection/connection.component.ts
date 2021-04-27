@@ -24,14 +24,6 @@ export class ConnectionComponent implements OnInit {
     }
   }
 
-  async onSignup(email:string, password:string){
-    await this.firebaseService.signup(email,password)
-    if(this.firebaseService.isLoggedIn){
-      this.isSignedIn = true;
-      this.router.navigate(['home']);
-    }
-  }
-
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password)
     if(this.firebaseService.isLoggedIn){
@@ -42,15 +34,6 @@ export class ConnectionComponent implements OnInit {
 
   handleLogout(){
     this.isSignedIn = false
-  }
-
-  displaySignUp(){
-    if(this.isClickSignUp === false){
-      this.isClickSignUp = true;
-    } else {
-      this.isClickSignUp = false;
-    }
-    console.log(this.isClickSignUp)
   }
 
   displaySignIn(){
