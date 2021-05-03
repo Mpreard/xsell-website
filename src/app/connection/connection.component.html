@@ -5,13 +5,25 @@
   </a>
 </nav>
 
-<div *ngIf="!isSignedIn" class="card">
-  <div class="card-body">
-    <h5 class="card-title">Login</h5>
-    <input type="email" #email/>
-    <input type="password" #password/>
-    <button (click)="onSignin(email.value,password.value)" type="button" class="btn btn-success">Sign In</button>
+<section>
+  <div class="container" *ngIf="!isSignedIn">
+    <div class="row">
+      <div style="margin-top: 14%;">
+        <div class="card card-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #email>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #password>
+            </div>
+            <button (click)="onSignin(email.value,password.value)" type="button" class="btn btn-success">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-
+</section>
