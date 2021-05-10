@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light pt-4 pb-4">
+<nav class="navbar navbar-expand-lg navbar-light bg-light pt-4">
     <a class="navbar-brand">
         <img src="../../assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Xsell
@@ -6,9 +6,9 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" [routerLink]="['/home']">Statistics <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" [routerLink]="['']">Products</a>
-            <a class="nav-item nav-link" [routerLink]="['/home']">Product</a>
+            <a class="nav-item nav-link active" [routerLink]="['/dashboard']">Statistics <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" [routerLink]="['/dashboard']">Products</a>
+            <a class="nav-item nav-link" [routerLink]="['/dashboard']">Product</a>
         </div>
         <button class="ml-auto btn btn-success nav-link" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</button>
     </div>

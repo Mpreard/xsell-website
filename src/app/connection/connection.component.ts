@@ -26,7 +26,7 @@ export class ConnectionComponent implements OnInit {
     await this.firebaseService.signin(email,password)
     if(this.firebaseService.isLoggedIn){
       this.isSignedIn = true;
-      this.router.navigate(['home']);
+      this.router.navigate(['/dashboard']);
     }
   }
 

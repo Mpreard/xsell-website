@@ -6,8 +6,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { FirebaseService } from './services/firebase.service';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { StatsComponent } from './stats/stats.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -15,15 +13,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    StatsComponent,
     ConnectionComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
