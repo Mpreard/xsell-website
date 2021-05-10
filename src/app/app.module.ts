@@ -17,8 +17,6 @@ import { ListProductComponent } from './component/product/list-product/list-prod
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 
 @NgModule({

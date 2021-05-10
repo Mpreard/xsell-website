@@ -22,9 +22,10 @@
           <td>{{ product.best_offer_id }}</td>
           <td>{{ product.user_id }}</td>
           <td>
-            <button (click)="removeProduct(product)" type="button" class="btn btn-danger">Delete</button>
+            <button (click)="toggleDisplay(product)" type="button" class="btn btn-danger">Delete</button>
           </td>
       </tr>
     </tbody>
   </table>
 </div>
+

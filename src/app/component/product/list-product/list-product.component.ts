@@ -1,6 +1,7 @@
 import { Product } from './../../../model/product/product.model';
 import { ProductService } from './../../../services/product/product.service';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-product',
@@ -30,11 +31,25 @@ export class ListProductComponent implements OnInit {
     })
   }
 
-  toggleDisplay()
+  toggleDisplay(product)
   {
-    this.isShow = !this.isShow;
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        this.ProductService.deleteProduct(product)
+      }
+    })
   }
-
-  removeProduct = product => this.ProductService.deleteProduct(product);
-
 }
