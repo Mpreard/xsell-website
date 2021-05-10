@@ -1,1 +1,30 @@
-<p>list-product works!</p>
+<div class="container mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Scale </th>
+        <th scope="col">Best offer</th>
+        <th scope="col">User # </th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Products let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.scale }}</td>
+          <td>{{ product.best_offer_id }}</td>
+          <td>{{ product.user_id }}</td>
+          <td>
+            <button (click)="removeProduct(product)" type="button" class="btn btn-danger">Delete</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

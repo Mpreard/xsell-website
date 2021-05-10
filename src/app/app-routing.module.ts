@@ -1,3 +1,4 @@
+import { ListProductComponent } from './component/product/list-product/list-product.component';
 import { ConnectionComponent } from './component/connection/connection.component';
 import { AppComponent } from './app.component';
 import { NgModule, Component } from '@angular/core';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'login', component: ConnectionComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'products', component: ListProductComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
