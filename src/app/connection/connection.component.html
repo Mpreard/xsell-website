@@ -1,30 +1,30 @@
-<nav class="navbar navbar-light bg-light" style="padding-top: 2%;padding-bottom: 2%;">
-  <a class="navbar-brand">
-    Xsell Administration
-  </a>
+<nav class="navbar navbar-light bg-light mb-5" style="padding-top: 2%;padding-bottom: 2%;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      Xell Administration
+    </a>
+  </div>
 </nav>
 
 <section>
   <div class="container" *ngIf="!isSignedIn">
-    <div class="row">
-      <div style="margin-top: 14%;">
-        <div class="card card-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #email>
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #password>
-            </div>
-            <button (click)="onSignin(email.value,password.value)" type="button" class="btn btn-success">Sign In <i class="bi bi-person-fill"></i>
-            </button>
-          </form>
-        </div>
-      </div>
+      <div class="card card-body">
+        <form>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" #email>
+            <small id="emailHelp" class="form-text text-muted">Administrator email</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" placeholder="Password" #password>
+          </div>
+          <button (click)="onSignin(email.value,password.value)" type="button" class="btn btn-success">Sign In <i class="bi bi-person-fill"></i>
+          </button>
+        </form>
     </div>
   </div>
 </section>
+
+
 

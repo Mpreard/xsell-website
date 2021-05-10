@@ -11,8 +11,6 @@ export class ConnectionComponent implements OnInit {
 
   title = 'firebase-angular-auth';
   isSignedIn = false;
-  isClickSignUp = false;
-  isClickSignIn = false;
 
   constructor(public firebaseService : FirebaseService, private router: Router){}
 
@@ -34,15 +32,6 @@ export class ConnectionComponent implements OnInit {
 
   handleLogout(){
     this.isSignedIn = false
-  }
-
-  displaySignIn(){
-    if(this.isClickSignIn === false){
-      this.isClickSignIn = true;
-    } else {
-      this.isClickSignIn = false;
-    }
-    console.log(this.isClickSignIn)
   }
 }
 
