@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   logout(){
     this.FirebaseService.logout();
     this.isLogout.emit();
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 
 }

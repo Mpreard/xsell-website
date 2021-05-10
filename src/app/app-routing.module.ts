@@ -8,8 +8,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: ConnectionComponent},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: 'login', component: ConnectionComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent}
 ];
 
