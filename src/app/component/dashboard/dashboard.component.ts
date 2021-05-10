@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { FirebaseService } from './../services/firebase.service';
+import { FirebaseService } from '../../services/firebase.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
