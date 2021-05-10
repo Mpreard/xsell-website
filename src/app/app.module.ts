@@ -11,13 +11,15 @@ import { RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConnectionComponent } from './connection/connection.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     StatsComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -6,11 +6,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { StatsComponent } from '../app/stats/stats.component';
 import { AuthGuard } from './guards/auth.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: ConnectionComponent},
   { path: 'stats', component: StatsComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
