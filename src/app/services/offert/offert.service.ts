@@ -24,7 +24,7 @@ export class OffertService {
     .snapshotChanges();
   }
 
-  getOfferListForOneProduct(productId: string):Observable<any>{
-    return this.angularFirestore.collection<any>("offerts", ref => ref.where('product_id','==',productId)).valueChanges();
+  getOfferListForOneProduct(productId: string){
+    return this.angularFirestore.collection("offerts", ref => ref.where('product_id','==',productId)).snapshotChanges();
   }
 }

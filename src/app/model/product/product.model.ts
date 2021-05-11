@@ -6,7 +6,7 @@ export class Product {
     description: string;
     price: number;
     condition: number;
-    sell: boolean;
+    sold: boolean;
     ref: string;
     best_offer_id: number;
     user_id: string

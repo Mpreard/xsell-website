@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   // Line Chart
   lineChartData: ChartDataset[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices', pointBackgroundColor: '#11111', borderColor: '#00000'  },
+    {data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices', pointBackgroundColor: '#11111', borderColor: '#00000'},
   ];
 
   lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June'];

@@ -23,7 +23,6 @@ export class ProductComponent implements OnInit {
     })
 
     this.OffertService.getOfferListForOneProduct(id).subscribe(res =>{
-      console.log(res)
       this.Offerts = res.map(e => {
         return {
           createTime: e.payload.doc.get('createTime'),

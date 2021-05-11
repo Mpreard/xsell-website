@@ -47,7 +47,7 @@ export class ListProductComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'The product has been deleted.',
           'success'
         )
         this.ProductService.deleteProduct(product)
