@@ -12,7 +12,7 @@ export class ProductService {
   getProductDoc(id)
   {
     return this.angularFirestore
-    .collection('product')
+    .collection('products')
     .doc(id)
     .valueChanges();
   }
@@ -20,13 +20,13 @@ export class ProductService {
   getProductList()
   {
     return this.angularFirestore
-    .collection("product")
+    .collection("products")
     .snapshotChanges();
   }
 
   deleteProduct(product) {
     return this.angularFirestore
-      .collection("product")
+      .collection("products")
       .doc(product.id)
       .delete();
   }
