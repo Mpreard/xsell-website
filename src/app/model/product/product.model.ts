@@ -5,9 +5,9 @@ export class Product {
     name: string;
     description: string;
     price: number;
-    scale: number;
     condition: number;
     sell: boolean;
+    ref: string;
     best_offer_id: number;
     user_id: string
 }

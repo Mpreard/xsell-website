@@ -22,9 +22,12 @@ export class ListProductComponent implements OnInit {
           name: e.payload.doc.get('name'),
           description: e.payload.doc.get('description'),
           price: e.payload.doc.get('price'),
-          scale: e.payload.doc.get('scale'),
           best_offer_id: e.payload.doc.get('best_offer_id'),
           user_id: e.payload.doc.get('user_id'),
+          createTime: e.payload.doc.get('createTime'),
+          updateTime: e.payload.doc.get('updateTime'),
+          ref: e.payload.doc.get('ref'),
+          condition: e.payload.doc.get('condition')
         } as Product
       })
     })

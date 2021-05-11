@@ -1,4 +1,4 @@
-export class Offer {
+export class Offert {
     id: string;
     createTime: Date;
     status: boolean;

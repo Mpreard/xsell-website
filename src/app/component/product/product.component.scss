@@ -5,6 +5,10 @@ img {
 .container {
     margin-left: 0;
 
+    .back{
+        text-decoration: none;
+        color: black;
+    }
     .row{
         width: 100%;
         flex-wrap: nowrap;

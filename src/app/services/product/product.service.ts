@@ -1,3 +1,4 @@
+import { Product } from './../../model/product/product.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
