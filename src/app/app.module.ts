@@ -17,6 +17,8 @@ import { ListProductComponent } from './component/product/list-product/list-prod
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
+import { ChartsModule } from 'ng2-charts';
+import { ProductComponent } from './component/product/product.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { RouterModule } from '@angular/router';
     ConnectionComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    ListProductComponent
+    ListProductComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { RouterModule } from '@angular/router';
     AngularFirestoreModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

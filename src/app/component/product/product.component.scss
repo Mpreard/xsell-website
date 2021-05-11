@@ -1,0 +1,17 @@
+img {
+    height: 250px;
+    width: auto;
+}
+.container {
+    margin-left: 0;
+
+    .row{
+        width: 100%;
+        flex-wrap: nowrap;
+
+        .btn-success{
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}

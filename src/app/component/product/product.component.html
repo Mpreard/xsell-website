@@ -1,0 +1,63 @@
+
+    <div class="container mw-100">
+        <div class="row mt-5">
+          <div class="col col-xl-3">
+            <img src="../../../assets/img/DSC03878.jpg">
+            <hr>
+            <div>
+                <p>Possesseur de l'offre : <b>{{ productRef.user_id }}</b></p>
+            </div>
+          </div>
+          <div class="col col-xl-7">
+            <h2>{{ productRef.name }}</h2>
+            <hr>
+            <button class="btn btn-success mb-2">Starter price : {{ productRef.price }} €</button>
+            <button *ngIf="productRef.sell" class="btn btn-danger mb-2 ml-2">Sold</button>
+            <div class="descritpion">
+                <p> {{ productRef.description }}</p>
+            </div>
+          </div>
+          <div class="col col-xl-2">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Caracteristics</h5>
+                    <h6 class="card-subtitle mb-5 text-muted">Condition : <b>{{ productRef.condition }}</b> </h6>
+                    <ul>
+                        <li> Create at <b>{{ productRef.createTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</b></li>
+                        <li> Scale : <b>{{ productRef.scale }}</b> </li>
+                        <li> Best offer : <b>{{ productRef.best_offer_id }}</b> </li>
+                        <li> By : <b>{{ productRef.user_id }}</b> </li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3 class="mt-5"> Offres en cours </h3>
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Scale </th>
+                            <th scope="col">Best offer</th>
+                            <th scope="col">User # </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ productRef.name }}</td>
+                            <td>{{ productRef.description }}</td>
+                            <td>{{ productRef.price }}</td>
+                            <td>{{ productRef.scale }}</td>
+                            <td>{{ productRef.best_offer_id }}</td>
+                            <td>{{ productRef.user_id }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

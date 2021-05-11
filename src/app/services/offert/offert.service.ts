@@ -4,14 +4,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class OffertService {
 
   constructor(private angularFirestore: AngularFirestore) { }
 
-  getProductDoc(id)
+  getOffertDoc(id)
   {
     return this.angularFirestore
-    .collection('products')
+    .collection('offerts')
     .doc(id)
     .valueChanges();
   }
@@ -19,14 +19,7 @@ export class ProductService {
   getProductList()
   {
     return this.angularFirestore
-    .collection("products")
+    .collection("offerts")
     .snapshotChanges();
-  }
-
-  deleteProduct(product) {
-    return this.angularFirestore
-      .collection("products")
-      .doc(product.id)
-      .delete();
   }
 }

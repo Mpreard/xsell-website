@@ -1,0 +1,41 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2> Ventes</h2>
+                <div class="chartjs-block">
+                    <canvas baseChart 
+                        [datasets]="lineChartData" 
+                        [labels]="lineChartLabels" 
+                        [options]="lineChartOptions"
+                        [legend]="lineChartLegend" 
+                        [type]="lineChartType" 
+                        [plugins]="lineChartPlugins">
+                    </canvas>
+                </div>
+            </div>
+            <div class="col">
+                <h2> Offres</h2>
+                <canvas baseChart 
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [type]="barChartType">
+              </canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                2 of 3
+            </div>
+            <div class="col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+</body>

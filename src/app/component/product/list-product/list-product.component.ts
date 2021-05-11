@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
 })
 export class ListProductComponent implements OnInit {
   Products: Product[];
-  isShow: boolean = false;
 
   constructor(private ProductService: ProductService) { }
 
