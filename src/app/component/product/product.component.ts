@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { throwError } from 'rxjs';
 import { OffertService } from 'src/app/services/offert/offert.service';
 import Swal from 'sweetalert2';
 import { Offert } from '../../model/offer/offert.model'
@@ -25,8 +26,6 @@ export class ProductComponent implements OnInit {
       if(res != undefined ){
         this.offerts(this.id);
         return this.productRef = res;
-      } else {
-        this.router.navigate(['product-not-found']);
       }
     })
   }

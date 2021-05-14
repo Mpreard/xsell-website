@@ -30,8 +30,6 @@ export class UserComponent implements OnInit {
         this.offertCount(this.id);
         this.productCount(this.id);
         return this.userRef = res;
-      } else {
-        this.router.navigate(['profile-not-found']);
       }
     })
   }

@@ -1,4 +1,4 @@
-<nav *ngIf="!hasRoute('login')" class="navbar navbar-expand-lg navbar-light bg-light pt-4 pb-4">
+<nav *ngIf="hasRoute('dashboard') || hasRoute('products') || hasRoute('users')" class="navbar navbar-expand-lg navbar-light bg-light pt-4 pb-4">
     <a class="navbar-brand">
         <img src="../../assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Xsell
