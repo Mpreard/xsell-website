@@ -19,6 +19,8 @@ import { RouterModule } from '@angular/router';
 
 import { ChartsModule } from 'ng2-charts';
 import { ProductComponent } from './component/product/product.component';
+import { ListUserComponent } from './component/user/list-user/list-user.component';
+import { UserComponent } from './component/user/user.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { ProductComponent } from './component/product/product.component';
     DashboardComponent,
     ListProductComponent,
     ProductComponent,
+    ListUserComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

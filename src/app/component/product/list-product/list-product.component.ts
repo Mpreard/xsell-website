@@ -37,6 +37,7 @@ export class ListProductComponent implements OnInit {
       })
     })
   }
+
   confirmDelete(product)
   {
     Swal.fire({

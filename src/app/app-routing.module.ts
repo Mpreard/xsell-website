@@ -8,6 +8,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ProductComponent } from './component/product/product.component';
+import { ListUserComponent } from './component/user/list-user/list-user.component';
+import { UserComponent } from './component/user/user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'products', component: ListProductComponent, canActivate: [AuthGuard]},
   { path: 'product/:id', component: ProductComponent, canActivate: [AuthGuard], pathMatch: 'full'},
+  { path: 'users', component: ListUserComponent, canActivate: [AuthGuard]},
+  { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard], pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
 ];
 

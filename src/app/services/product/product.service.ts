@@ -24,6 +24,13 @@ export class ProductService {
     .snapshotChanges();
   }
 
+  getProductByUser(id)
+  {
+    return this.angularFirestore
+    .collection("products", ref => ref.where('user_id','==',id))
+    .snapshotChanges();
+  }
+
   getProductBySearch(search)
   {
     return this.angularFirestore

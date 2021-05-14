@@ -1,39 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OffertService } from 'src/app/services/offert/offert.service';
+import { ProductService } from 'src/app/services/product/product.service';
 import Swal from 'sweetalert2';
-import { Offert } from '../../model/offer/offert.model'
-import { ProductService } from './../../services/product/product.service';
+import { Offert } from '../../model/offer/offert.model';
+import { Product } from '../../model/product/product.model';
+import { UserService } from './../../services/user/user.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
-export class ProductComponent implements OnInit {
-  productRef: any;
-  Offerts: Offert[];
-  offertCount: number;
+export class UserComponent implements OnInit {
   id = this.act.snapshot.paramMap.get('id');
+  Offerts: Offert[];
+  Products: Product[];
+  userRef: any;
 
+  countProduct: number = 0;
+  countOffert: number = 0;
 
-  constructor(public ProductService: ProductService, private act: ActivatedRoute, private router: Router, public OffertService: OffertService) { }
+  constructor(public UserService: UserService, private act: ActivatedRoute, private router: Router, public OffertService: OffertService, private ProductService: ProductService) { }
 
   ngOnInit(): void {
-
-    this.ProductService.getProductDoc(this.id).subscribe(res => {
+    this.UserService.getUserDoc(this.id).subscribe(res => {
       if(res != undefined ){
         this.offerts(this.id);
-        return this.productRef = res;
+        this.offertCount(this.id);
+        this.productCount(this.id);
+        return this.userRef = res;
       } else {
-        this.router.navigate(['product-not-found']);
+        this.router.navigate(['profile-not-found']);
       }
     })
   }
 
   offerts(id: string)
   {
-    this.OffertService.getOffertListForOneProduct(id).subscribe(res =>{
+    this.OffertService.getOffertListForOneUser(id).subscribe(res =>{
       this.Offerts = res.map(e => {
         return {
           id: e.payload.doc.id,
@@ -50,7 +55,7 @@ export class ProductComponent implements OnInit {
   searchOfferts(search : { value: string; })
   {
     if(search.value.length != 0){
-      this.OffertService.getOffertsBySearch(search.value).subscribe(res => {
+      this.OffertService.getOffertsBySearchByProduct(search.value).subscribe(res => {
         this.Offerts = res.map(e => {
           return {
             id: e.payload.doc.id,
@@ -102,6 +107,20 @@ export class ProductComponent implements OnInit {
                 <li class="mb-2"> <b>Status</b> : ` + offert.status + `</li> 
                 <li class="mb-2"> <b>Price</b> : ` + offert.price + `</li>  
              </ul>`,
+    })
+  }
+
+  offertCount(id)
+  {
+    this.OffertService.getOffertListForOneUser(id).subscribe(res =>{
+      this.countOffert = res.length;
+    })
+  }
+
+  productCount(id)
+  {
+    this.ProductService.getProductByUser(id).subscribe(res =>{
+      this.countProduct = res.length;
     })
   }
 }

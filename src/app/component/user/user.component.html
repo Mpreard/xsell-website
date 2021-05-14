@@ -1,0 +1,99 @@
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="fs-2 mt-3">
+            <a href="#" [routerLink]="['/users']" class="back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
+                </svg>
+                Retour
+            </a>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-12 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
+                                <h6 class="f-w-600"style="color: black;">{{ userRef.name }}</h6>
+                                <p style="color: black;">{{ id }}</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Informations</h6>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Email</p>
+                                        <h6 class="text-muted f-w-400">{{ userRef.email }}</h6>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Phone</p>
+                                        <h6 class="text-muted f-w-400">{{ userRef.phone }}</h6>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Adresse</p>
+                                        <h6 class="text-muted f-w-400">{{ userRef.address_line }}</h6>
+                                        <h6 class="text-muted f-w-400">{{ userRef.city }} - {{ userRef.zip }}</h6>
+                                        <h6 class="text-muted f-w-400">{{ userRef.state }}</h6>
+                                    </div>
+                                </div>
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Statistics</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Products</p>
+                                        <h6 class="text-muted f-w-400"> {{ countProduct }} </h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Offerts</p>
+                                        <h6 class="text-muted f-w-400"> {{ countOffert }} </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3 class="mt-5"> Offerts </h3>
+        <div class="input-group mb-1 mt-3">
+            <div class="form-outline">
+            <input id="search-input" type="search" id="form1" class="form-control" placeholder="search..." #search (keyup.enter)=searchOfferts(search)/>
+            </div>
+            <button id="search-button" type="button" class="btn btn-success">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Offert #</th>
+                            <th scope="col">Product #</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let offert of Offerts">
+                            <td>{{ offert.id }}</td>
+                            <td><a [routerLink]="['/product', offert.product_id]">{{ offert.product_id }} <i class="bi bi-chevron-down"></i>
+                            </a></td>
+                            <td>{{ offert.price }}</td>
+                            <td>{{ offert.status }}</td>
+                            <td class="d-flex">
+                                <button (click)="confirmDelete(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
+                                <button (click)="showOffert(offert)" type="button" class="btn btn-warning">Show</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

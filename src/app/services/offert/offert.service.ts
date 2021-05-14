@@ -29,10 +29,21 @@ export class OffertService {
     return this.angularFirestore.collection("offerts", ref => ref.where('product_id','==',productId)).snapshotChanges();
   }
 
+  getOffertListForOneUser(userId: string){
+    return this.angularFirestore.collection("offerts", ref => ref.where('user_id','==',userId)).snapshotChanges();
+  }
+
   getOffertsBySearch(search)
   {
     return this.angularFirestore
     .collection<Offert>('offerts', ref => { return ref.orderBy('user_id').startAt(search).endAt(search+'\uf8ff') })
+    .snapshotChanges();
+  }
+
+  getOffertsBySearchByProduct(search)
+  {
+    return this.angularFirestore
+    .collection<Offert>('offerts', ref => { return ref.orderBy('product_id').startAt(search).endAt(search+'\uf8ff') })
     .snapshotChanges();
   }
 
