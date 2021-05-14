@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
+import { Offert } from 'src/app/model/offer/offert.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,14 @@ export class OffertService {
     .snapshotChanges();
   }
 
-  getOfferListForOneProduct(productId: string){
+  getOffertListForOneProduct(productId: string){
     return this.angularFirestore.collection("offerts", ref => ref.where('product_id','==',productId)).snapshotChanges();
+  }
+
+  getOffertsBySearch(search)
+  {
+    return this.angularFirestore
+    .collection<Offert>('offerts', ref => { return ref.orderBy('user_id').startAt(search).endAt(search+'\uf8ff') })
+    .snapshotChanges();
   }
 }

@@ -40,6 +40,14 @@
     </div>
     <hr>
     <h3 class="mt-5"> Offerts </h3>
+    <div class="input-group mb-1 mt-3">
+        <div class="form-outline">
+          <input id="search-input" type="search" id="form1" class="form-control" placeholder="search..." #search (keyup.enter)=searchOfferts(search)/>
+        </div>
+        <button id="search-button" type="button" class="btn btn-primary">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
     <div class="row">
         <div class="col-12">
             <table class="table">

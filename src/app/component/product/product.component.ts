@@ -12,17 +12,26 @@ import { ProductService } from './../../services/product/product.service';
 export class ProductComponent implements OnInit {
   productRef: any;
   Offerts: Offert[];
+  id = this.act.snapshot.paramMap.get('id');
+
 
   constructor(public ProductService: ProductService, private act: ActivatedRoute, private router: Router, public OffertService: OffertService) { }
 
   ngOnInit(): void {
-    const id = this.act.snapshot.paramMap.get('id');
 
-    this.ProductService.getProductDoc(id).subscribe(res => {
-      return this.productRef = res;
+    this.ProductService.getProductDoc(this.id).subscribe(res => {
+      if(res != undefined ){
+        this.offerts(this.id);
+        return this.productRef = res;
+      } else {
+        this.router.navigate(['product-not-found']);
+      }
     })
+  }
 
-    this.OffertService.getOfferListForOneProduct(id).subscribe(res =>{
+  offerts(id: string)
+  {
+    this.OffertService.getOffertListForOneProduct(id).subscribe(res =>{
       this.Offerts = res.map(e => {
         return {
           createTime: e.payload.doc.get('createTime'),
@@ -35,4 +44,22 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  searchOfferts(search : { value: string; })
+  {
+    if(search.value.length != 0){
+      this.OffertService.getOffertsBySearch(search.value).subscribe(res => {
+        this.Offerts = res.map(e => {
+          return {
+            createTime: e.payload.doc.get('createTime'),
+            price: e.payload.doc.get('price'),
+            status: e.payload.doc.get('status'),
+            product_id: e.payload.doc.get('product_id'),
+            user_id: e.payload.doc.get('user_id')
+          } as Offert
+        })
+      })
+    } else {
+      this.offerts(this.id);
+    }
+  }
 }
