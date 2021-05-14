@@ -24,6 +24,13 @@ export class ProductService {
     .snapshotChanges();
   }
 
+  getProductBySearch(search)
+  {
+    return this.angularFirestore
+    .collection<Product>('products', ref => { return ref.orderBy('name').startAt(search).endAt(search+'\uf8ff') })
+    .snapshotChanges();
+  }
+
   deleteProduct(product) {
     return this.angularFirestore
       .collection("products")

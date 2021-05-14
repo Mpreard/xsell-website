@@ -15,6 +15,11 @@ export class ListProductComponent implements OnInit {
 
   ngOnInit(): void 
   {
+    this.products();
+  }
+
+  products() 
+  {
     this.ProductService.getProductList().subscribe(res => {
       this.Products = res.map(e => {
         return {
@@ -32,7 +37,6 @@ export class ListProductComponent implements OnInit {
       })
     })
   }
-
   confirmDelete(product)
   {
     Swal.fire({
@@ -53,5 +57,29 @@ export class ListProductComponent implements OnInit {
         this.ProductService.deleteProduct(product)
       }
     })
+  }
+
+  searchProducts(search: { value: string; })
+  {
+    if(search.value.length != 0){
+      this.ProductService.getProductBySearch(search.value).subscribe(res => {
+        this.Products = res.map(e => {
+          return {
+            id: e.payload.doc.id,
+            name: e.payload.doc.get('name'),
+            description: e.payload.doc.get('description'),
+            price: e.payload.doc.get('price'),
+            best_offer_id: e.payload.doc.get('best_offer_id'),
+            user_id: e.payload.doc.get('user_id'),
+            createTime: e.payload.doc.get('createTime'),
+            updateTime: e.payload.doc.get('updateTime'),
+            ref: e.payload.doc.get('ref'),
+            condition: e.payload.doc.get('condition')
+          } as Product
+        })
+      })
+    } else {
+      this.products();
+    }
   }
 }
