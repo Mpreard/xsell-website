@@ -35,4 +35,11 @@ export class OffertService {
     .collection<Offert>('offerts', ref => { return ref.orderBy('user_id').startAt(search).endAt(search+'\uf8ff') })
     .snapshotChanges();
   }
+
+  deleteOffert(offert) {
+    return this.angularFirestore
+      .collection("offerts")
+      .doc(offert.id)
+      .delete();
+  }
 }

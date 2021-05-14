@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OffertService } from 'src/app/services/offert/offert.service';
+import Swal from 'sweetalert2';
 import { Offert } from '../../model/offer/offert.model'
 import { ProductService } from './../../services/product/product.service';
 
@@ -34,6 +35,7 @@ export class ProductComponent implements OnInit {
     this.OffertService.getOffertListForOneProduct(id).subscribe(res =>{
       this.Offerts = res.map(e => {
         return {
+          id: e.payload.doc.id,
           createTime: e.payload.doc.get('createTime'),
           price: e.payload.doc.get('price'),
           status: e.payload.doc.get('status'),
@@ -50,6 +52,7 @@ export class ProductComponent implements OnInit {
       this.OffertService.getOffertsBySearch(search.value).subscribe(res => {
         this.Offerts = res.map(e => {
           return {
+            id: e.payload.doc.id,
             createTime: e.payload.doc.get('createTime'),
             price: e.payload.doc.get('price'),
             status: e.payload.doc.get('status'),
@@ -61,5 +64,27 @@ export class ProductComponent implements OnInit {
     } else {
       this.offerts(this.id);
     }
+  }
+
+  confirmDelete(offert)
+  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#28A745',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'The offert has been deleted.',
+          'success'
+        )
+        this.OffertService.deleteOffert(offert)
+      }
+    })
   }
 }

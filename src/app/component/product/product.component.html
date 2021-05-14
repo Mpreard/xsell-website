@@ -53,20 +53,26 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Offert #</th>
                         <th scope="col">User #</th>
                         <th scope="col">Product #</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status </th>
                         <th scope="col">Creation time</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let offert of Offerts">
+                        <td>{{ offert.id }}</td>
                         <td>{{ offert.user_id }}</td>
                         <td>{{ offert.product_id }}</td>
                         <td>{{ offert.price }}</td>
                         <td>{{ offert.status }}</td>
-                        <td>{{ offert.createTime.toDate() | date:'yyyy/MM/dd h:mm:ss a'}}</td>
+                        <td class="d-flex">
+                            <button (click)="confirmDelete(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
+                            <button type="button" class="btn btn-warning">Show</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
