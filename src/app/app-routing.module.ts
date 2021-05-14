@@ -1,15 +1,25 @@
-import { HomeComponent } from './home/home.component';
-import { ConnectionComponent } from './connection/connection.component';
+import { ListProductComponent } from './component/product/list-product/list-product.component';
+import { ConnectionComponent } from './component/connection/connection.component';
 import { AppComponent } from './app.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { StatsComponent } from '../app/stats/stats.component';
+import { AuthGuard } from './guards/auth.guard';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { ProductComponent } from './component/product/product.component';
+import { ListUserComponent } from './component/user/list-user/list-user.component';
+import { UserComponent } from './component/user/user.component';
 
 const routes: Routes = [
-  { path: '', component: ConnectionComponent},
-  { path: 'stats', component: StatsComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: 'login', component: ConnectionComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'products', component: ListProductComponent, canActivate: [AuthGuard]},
+  { path: 'product/:id', component: ProductComponent, canActivate: [AuthGuard], pathMatch: 'full'},
+  { path: 'users', component: ListUserComponent, canActivate: [AuthGuard]},
+  { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard], pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

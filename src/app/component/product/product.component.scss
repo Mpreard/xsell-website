@@ -1,0 +1,26 @@
+img {
+    height: 250px;
+    width: auto;
+}
+
+.container {
+    margin-left: 0;
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .padding {
+        padding: 3rem !important
+    }
+
+    .row{
+        width: 100%;
+        flex-wrap: nowrap;
+
+        .btn-success{
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}

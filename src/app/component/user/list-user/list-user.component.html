@@ -1,0 +1,38 @@
+<body>
+    <div class="container mw-80 mt-5">
+      <div class="row-12">
+        <div class="input-group mb-3">
+          <div class="form-outline">
+            <input id="search-input" type="search" id="form1" class="form-control" placeholder="search..." #search (keyup.enter)=searchUser(search)/>
+          </div>
+          <button id="search-button" type="button" class="btn btn-success">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <table class="table mw-100">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>email</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of Users let i = index">
+                <th>{{ user.id }}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td class="d-flex">
+                    <button (click)="confirmDelete(user)" type="button" class="btn btn-danger mr-2">Delete</button>
+                    <button  [routerLink]="['/user', user.id]" type="button" class="btn btn-warning">Show</button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  
+  
+  

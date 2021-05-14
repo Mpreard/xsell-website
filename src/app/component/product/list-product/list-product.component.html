@@ -1,0 +1,43 @@
+<body>
+  <div class="container mw-80 mt-5">
+    <div class="row-12">
+      <div class="input-group mb-3">
+        <div class="form-outline">
+          <input id="search-input" type="search" id="form1" class="form-control" placeholder="search..." #search (keyup.enter)=searchProducts(search)/>
+        </div>
+        <button id="search-button" type="button" class="btn btn-success">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <table class="table mw-100">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Best offer</th>
+            <th>User # </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of Products let i = index">
+              <th>{{ product.id }}</th>
+              <td>{{ product.name }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.best_offer_id }}</td>
+              <td>{{ product.user_id }}</td>
+              <td class="d-flex">
+                  <button (click)="confirmDelete(product)" type="button" class="btn btn-danger mr-2">Delete</button>
+                  <button  [routerLink]="['/product', product.id]" type="button" class="btn btn-warning">Show</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+

@@ -1,23 +1,38 @@
-import { FirebaseService } from './services/firebase.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { AngularFireModule } from '@angular/fire'
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { FirebaseService } from './services/firebase/firebase.service';
+import { ProductService } from './services/product/product.service';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { StatsComponent } from './stats/stats.component';
+import { ConnectionComponent } from './component/connection/connection.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { ListProductComponent } from './component/product/list-product/list-product.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ConnectionComponent } from './connection/connection.component';
+import { ChartsModule } from 'ng2-charts';
+import { ProductComponent } from './component/product/product.component';
+import { ListUserComponent } from './component/user/list-user/list-user.component';
+import { UserComponent } from './component/user/user.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    StatsComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    PageNotFoundComponent,
+    DashboardComponent,
+    ListProductComponent,
+    ProductComponent,
+    ListUserComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +44,11 @@ import { ConnectionComponent } from './connection/connection.component';
       messagingSenderId: "299676784252",
       appId: "1:299676784252:web:1f7a015a6c380dd394dbf9"
     }),
-    AppRoutingModule
+    AngularFirestoreModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ChartsModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

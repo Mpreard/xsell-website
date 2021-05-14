@@ -1,0 +1,79 @@
+<div class="container mw-100">
+    <div class="padding">
+        <div class="fs-2 mt-3">
+            <a href="#" [routerLink]="['/products']" class="back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
+                </svg>
+                Retour
+            </a>
+        </div>
+        <div class="row mt-5">
+            <div class="col col-xl-3">
+            <img src="../../../assets/img/DSC03878.jpg">
+            <hr>
+            <div>
+                <p>Possesseur de l'offre : <b>{{ productRef.user_id }}</b></p>
+            </div>
+            </div>
+            <div class="col col-xl-7">
+            <h2>{{ productRef.name }}</h2>
+            <hr>
+            <button class="btn btn-success mb-2">Starter price : {{ productRef.price }} €</button>
+            <button *ngIf="productRef.sold" class="btn btn-danger mb-2 ml-2">Sold</button>
+            <div class="descritpion">
+                <p> {{ productRef.description }}</p>
+            </div>
+            </div>
+            <div class="col col-xl-2">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Caracteristics</h5>
+                    <h6 class="card-subtitle mb-5 text-muted">Condition : <b>{{ productRef.condition }}</b> </h6>
+                    <ul>
+                        <li> Create at <b>{{ productRef.createTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</b></li>
+                        <li> Best offer : <b>{{ productRef.best_offer_id }}</b> </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr>
+        <h3 class="mt-5"> Offerts </h3>
+        <div class="input-group mb-1 mt-3">
+            <div class="form-outline">
+            <input id="search-input" type="search" id="form1" class="form-control" placeholder="search..." #search (keyup.enter)=searchOfferts(search)/>
+            </div>
+            <button id="search-button" type="button" class="btn btn-success">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Offert #</th>
+                            <th scope="col">User #</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let offert of Offerts">
+                            <td>{{ offert.id }}</td>
+                            <td><a [routerLink]="['/user', offert.user_id]">{{ offert.user_id }} <i class="bi bi-chevron-down"></i></a></td>
+                            <td>{{ offert.price }}</td>
+                            <td>{{ offert.status }}</td>
+                            <td class="d-flex">
+                                <button (click)="confirmDelete(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
+                                <button (click)="showOffert(offert)" type="button" class="btn btn-warning">Show</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
