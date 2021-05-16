@@ -39,7 +39,6 @@ export class ProductService {
   }
 
   deleteProduct(product) {
-    console.log(product.id)
     return this.angularFirestore
       .collection("products")
       .doc(product.id)
