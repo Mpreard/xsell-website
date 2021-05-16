@@ -1,3 +1,4 @@
+import { LogoutComponent } from './component/logout/logout.component';
 import { ListProductComponent } from './component/product/list-product/list-product.component';
 import { ConnectionComponent } from './component/connection/connection.component';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductComponent, canActivate: [AuthGuard], pathMatch: 'full'},
   { path: 'users', component: ListUserComponent, canActivate: [AuthGuard]},
   { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard], pathMatch: 'full'},
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent}
 ];
 

@@ -17,6 +17,13 @@ export class UserService {
     .valueChanges()
   }
 
+  getUserByEmail(email)
+  {
+    return this.angularFirestore
+    .collection('users', ref => ref.where('email', '==', email))
+    .snapshotChanges();
+  }
+
   getUserList() { 
     return this.angularFirestore
     .collection("users")

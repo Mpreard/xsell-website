@@ -1,11 +1,13 @@
 export class User {
-    id: string;
     name: string;
-    email: string; 
+    email: string;
     dob: Date;
     phone: number;
     address_line: string;
     city: string;
-    zip: string;
     state: string;
+    zip: string;
+    role: number;
+    valid: boolean;
+    uid: string;
 }

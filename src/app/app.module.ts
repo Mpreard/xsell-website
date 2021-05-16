@@ -21,6 +21,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ProductComponent } from './component/product/product.component';
 import { ListUserComponent } from './component/user/list-user/list-user.component';
 import { UserComponent } from './component/user/user.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { UserComponent } from './component/user/user.component';
     ProductComponent,
     ListUserComponent,
     UserComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
