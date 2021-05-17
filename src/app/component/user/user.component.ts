@@ -30,7 +30,8 @@ export class UserComponent implements OnInit {
         this.offertCount(this.id);
         this.productCount(this.id);
         this.products();
-        this.userRef = res;
+        this.userRef = res[0];
+        console.log(this.userRef)
       }
     })
   }
