@@ -31,7 +31,6 @@
                     <h5 class="card-title">Caracteristics</h5>
                     <h6 class="card-subtitle mb-5 text-muted">Condition : <b>{{ productRef.condition }}</b> </h6>
                     <ul>
-                        <li> Create at <b>{{ productRef.createTime.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</b></li>
                         <li> Best offer : <b>{{ productRef.best_offer_id }}</b> </li>
                     </ul>
                 </div>
@@ -63,9 +62,9 @@
                     <tbody>
                         <tr *ngFor="let offert of Offerts">
                             <td>{{ offert.id }}</td>
-                            <td><a [routerLink]="['/user', offert.user_id]">{{ offert.user_id }} <i class="bi bi-chevron-down"></i></a></td>
-                            <td>{{ offert.price }}</td>
-                            <td>{{ offert.status }}</td>
+                            <td><a [routerLink]="['/user', offert.id_user]">{{ offert.id_user }} <i class="bi bi-chevron-down"></i>
+                            </a></td>
+                            <td>{{ offert.best_offer }}</td>
                             <td class="d-flex">
                                 <button (click)="confirmDelete(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
                                 <button (click)="showOffert(offert)" type="button" class="btn btn-warning">Show</button>

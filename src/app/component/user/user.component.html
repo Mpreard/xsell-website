@@ -73,25 +73,54 @@
                             <th scope="col">Offert #</th>
                             <th scope="col">Product #</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Status </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let offert of Offerts">
                             <td>{{ offert.id }}</td>
-                            <td><a [routerLink]="['/product', offert.product_id]">{{ offert.product_id }} <i class="bi bi-chevron-down"></i>
+                            <td><a [routerLink]="['/product', offert.id_product]">{{ offert.id_product }} <i class="bi bi-chevron-down"></i>
                             </a></td>
-                            <td>{{ offert.price }}</td>
-                            <td>{{ offert.status }}</td>
+                            <td>{{ offert.best_offer }}</td>
                             <td class="d-flex">
-                                <button (click)="confirmDelete(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
+                                <button (click)="confirmDeleteOffert(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
                                 <button (click)="showOffert(offert)" type="button" class="btn btn-warning">Show</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <h3 class="mt-5"> Products </h3>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Best offer</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of Products let i = index">
+                    <th>{{ product.id }}</th>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.best_offer_id }}</td>
+                    <td class="d-flex">
+                        <button (click)="confirmDeleteProduct(product)" type="button" class="btn btn-danger mr-2">Delete</button>
+                        <button  [routerLink]="['/product', product.id]" type="button" class="btn btn-warning">Show</button>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
     </div>
 </div>

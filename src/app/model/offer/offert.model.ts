@@ -1,8 +1,7 @@
 export class Offert {
     id: string;
-    createTime: Date;
-    status: boolean;
-    price: number;
-    product_id: string;
-    user_id: string;
+    date: Date;
+    best_offert: number;
+    id_product: string;
+    id_user: string;
 }

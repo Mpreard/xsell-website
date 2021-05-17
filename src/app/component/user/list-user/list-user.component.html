@@ -20,12 +20,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let user of Users let i = index">
-                <th>{{ user.id }}</th>
+                <th>{{ user.uid }}</th>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td class="d-flex">
                     <button (click)="confirmDelete(user)" type="button" class="btn btn-danger mr-2">Delete</button>
-                    <button  [routerLink]="['/user', user.id]" type="button" class="btn btn-warning">Show</button>
+                    <button  [routerLink]="['/user', user.uid]" type="button" class="btn btn-warning">Show</button>
                 </td>
             </tr>
           </tbody>

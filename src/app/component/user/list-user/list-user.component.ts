@@ -34,7 +34,7 @@ export class ListUserComponent implements OnInit {
           state: e.payload.doc.get('state'),
           role: e.payload.doc.get('role'),
           valid: e.payload.doc.get('valid'),
-          uid: e.payload.doc.get('uuid')
+          uid: e.payload.doc.get('uid')
         } as User;
       })
     });    
@@ -46,7 +46,7 @@ export class ListUserComponent implements OnInit {
       this.userService.getUserBySearch(search.value).subscribe(res => {
         this.Users = res.map(e => {
           return {
-            id: e.payload.doc.id,
+          id: e.payload.doc.id,
           name: e.payload.doc.get('name'),
           email: e.payload.doc.get('email'),
           dob: e.payload.doc.get('dob'),
@@ -57,7 +57,7 @@ export class ListUserComponent implements OnInit {
           state: e.payload.doc.get('state'),
           role: e.payload.doc.get('role'),
           valid: e.payload.doc.get('valid'),
-          uid: e.payload.doc.get('uuid')
+          uid: e.payload.doc.get('uid')
           } as User
         })
       })

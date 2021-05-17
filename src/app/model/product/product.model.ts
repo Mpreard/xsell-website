@@ -1,7 +1,7 @@
 export class Product {
     id: string;
-    createTime: Date;
-    updateTime: Date;
+    date_limit: Date;
+    create_at: number;
     name: string;
     description: string;
     price: number;

@@ -22,6 +22,7 @@ export class FirebaseService {
       this.UserService.getUserByEmail(email).subscribe(data => {
         this.Admin = data.map(e => {
           this.role = e.payload.doc.get('role')
+          console.log(this.role)
           if(this.role === 1){
             this.isLoggedIn = true;
             localStorage.setItem('user', JSON.stringify(res.user));

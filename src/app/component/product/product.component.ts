@@ -17,6 +17,12 @@ export class ProductComponent implements OnInit {
   offertCount: number;
   id = this.act.snapshot.paramMap.get('id');
 
+  documentProductId: string;
+  productId: string;
+  createTime: object;
+  price: number;
+
+
 
   constructor(public ProductService: ProductService, private act: ActivatedRoute, private router: Router, public OffertService: OffertService) { }
 
@@ -36,11 +42,10 @@ export class ProductComponent implements OnInit {
       this.Offerts = res.map(e => {
         return {
           id: e.payload.doc.id,
-          createTime: e.payload.doc.get('createTime'),
-          price: e.payload.doc.get('price'),
-          status: e.payload.doc.get('status'),
-          product_id: e.payload.doc.get('product_id'),
-          user_id: e.payload.doc.get('user_id'),
+          id_user: e.payload.doc.get('id_user'),
+          id_product: e.payload.doc.get('id_product'),
+          date: e.payload.doc.get('date'),
+          best_offert: e.payload.doc.get('best_offert'),
         } as Offert
       })
     });
@@ -53,11 +58,10 @@ export class ProductComponent implements OnInit {
         this.Offerts = res.map(e => {
           return {
             id: e.payload.doc.id,
-            createTime: e.payload.doc.get('createTime'),
-            price: e.payload.doc.get('price'),
-            status: e.payload.doc.get('status'),
-            product_id: e.payload.doc.get('product_id'),
-            user_id: e.payload.doc.get('user_id')
+            id_user: e.payload.doc.get('id_user'),
+            id_product: e.payload.doc.get('id_product'),
+            date: e.payload.doc.get('date'),
+            best_offert: e.payload.doc.get('best_offert'),
           } as Offert
         })
       })
@@ -95,11 +99,9 @@ export class ProductComponent implements OnInit {
       title: 'Informations',
       html: `<ul class="mb-3" style="list-style: none;">
                 <li class="mb-2"> <b>Offert_id</b> : ` + offert.id + `</li>
-                <li class="mb-2"> <b>Create time</b> : ` + offert.createTime.toDate() + `</li> 
-                <li class="mb-2"> <b>User_id</b> : ` + offert.user_id + `</li> 
-                <li class="mb-2"> <b>Product_id</b> : ` + offert.product_id + `</li> 
-                <li class="mb-2"> <b>Status</b> : ` + offert.status + `</li> 
-                <li class="mb-2"> <b>Price</b> : ` + offert.price + `</li>  
+                <li class="mb-2"> <b>User_id</b> : ` + offert.id_user + `</li> 
+                <li class="mb-2"> <b>Product_id</b> : ` + offert.id_product + `</li> 
+                <li class="mb-2"> <b>Price</b> : ` + offert.best_offer + `</li>  
              </ul>`,
     })
   }

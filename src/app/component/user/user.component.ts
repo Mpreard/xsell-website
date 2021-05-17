@@ -29,7 +29,8 @@ export class UserComponent implements OnInit {
         this.offerts(this.id);
         this.offertCount(this.id);
         this.productCount(this.id);
-        return this.userRef = res;
+        this.products();
+        this.userRef = res;
       }
     })
   }
@@ -40,11 +41,10 @@ export class UserComponent implements OnInit {
       this.Offerts = res.map(e => {
         return {
           id: e.payload.doc.id,
-          createTime: e.payload.doc.get('createTime'),
-          price: e.payload.doc.get('price'),
-          status: e.payload.doc.get('status'),
-          product_id: e.payload.doc.get('product_id'),
-          user_id: e.payload.doc.get('user_id'),
+          id_user: e.payload.doc.get('id_user'),
+          id_product: e.payload.doc.get('id_product'),
+          date: e.payload.doc.get('date'),
+          best_offert: e.payload.doc.get('best_offert'),
         } as Offert
       })
     });
@@ -57,11 +57,10 @@ export class UserComponent implements OnInit {
         this.Offerts = res.map(e => {
           return {
             id: e.payload.doc.id,
-            createTime: e.payload.doc.get('createTime'),
-            price: e.payload.doc.get('price'),
-            status: e.payload.doc.get('status'),
-            product_id: e.payload.doc.get('product_id'),
-            user_id: e.payload.doc.get('user_id')
+            id_user: e.payload.doc.get('id_user'),
+            id_product: e.payload.doc.get('id_product'),
+            date: e.payload.doc.get('date'),
+            best_offert: e.payload.doc.get('best_offert'),
           } as Offert
         })
       })
@@ -70,7 +69,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-  confirmDelete(offert)
+  confirmDeleteOffert(offert)
   {
     Swal.fire({
       title: 'Are you sure?',
@@ -92,6 +91,49 @@ export class UserComponent implements OnInit {
     })
   }
 
+  confirmDeleteProduct(product)
+  {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#28A745',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'The offert has been deleted.',
+          'success'
+        )
+        this.ProductService.deleteProduct(product)
+      }
+    })
+  }
+
+  products() 
+  {
+    this.ProductService.getProductList().subscribe(res => {
+      this.Products = res.map(e => {
+        return {
+          id: e.payload.doc.id,
+          name: e.payload.doc.get('name'),
+          description: e.payload.doc.get('description'),
+          price: e.payload.doc.get('price'),
+          best_offer_id: e.payload.doc.get('best_offer_id'),
+          user_id: e.payload.doc.get('user_id'),
+          create_at: e.payload.doc.get('create_at'),
+          ref: e.payload.doc.get('ref'),
+          condition: e.payload.doc.get('condition'),
+          date_limit: e.payload.doc.get('date_limit'),
+          sold: e.payload.doc.get('sold')
+        } as Product
+      })
+    })
+  }
+
   showOffert(offert)
   {
     Swal.fire({
@@ -99,11 +141,9 @@ export class UserComponent implements OnInit {
       title: 'Informations',
       html: `<ul class="mb-3" style="list-style: none;">
                 <li class="mb-2"> <b>Offert_id</b> : ` + offert.id + `</li>
-                <li class="mb-2"> <b>Create time</b> : ` + offert.createTime.toDate() + `</li> 
-                <li class="mb-2"> <b>User_id</b> : ` + offert.user_id + `</li> 
-                <li class="mb-2"> <b>Product_id</b> : ` + offert.product_id + `</li> 
-                <li class="mb-2"> <b>Status</b> : ` + offert.status + `</li> 
-                <li class="mb-2"> <b>Price</b> : ` + offert.price + `</li>  
+                <li class="mb-2"> <b>User_id</b> : ` + offert.id_user + `</li> 
+                <li class="mb-2"> <b>Product_id</b> : ` + offert.id_product + `</li> 
+                <li class="mb-2"> <b>Price</b> : ` + offert.best_offer + `</li>  
              </ul>`,
     })
   }

@@ -12,9 +12,8 @@ export class UserService {
 
   getUserDoc(id) {
     return this.angularFirestore
-    .collection('users')
-    .doc(id)
-    .valueChanges()
+    .collection('users', ref => ref.where('uid', '==', id))
+    .valueChanges();
   }
 
   getUserByEmail(email)
@@ -26,14 +25,14 @@ export class UserService {
 
   getUserList() { 
     return this.angularFirestore
-    .collection("users")
+    .collection("users", ref => ref.where('role','!=', 1))
     .snapshotChanges();
   }
 
   getUserBySearch(search)
   {
     return this.angularFirestore
-    .collection<User>('users', ref => { return ref.orderBy('email').startAt(search).endAt(search+'\uf8ff') })
+    .collection<User>('users', ref => { return ref.orderBy('uid').startAt(search).endAt(search+'\uf8ff') })
     .snapshotChanges();
   }
 

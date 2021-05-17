@@ -26,24 +26,24 @@ export class OffertService {
   }
 
   getOffertListForOneProduct(productId: string){
-    return this.angularFirestore.collection("offerts", ref => ref.where('product_id','==',productId)).snapshotChanges();
+    return this.angularFirestore.collection("offerts", ref => ref.where('id_product','==',productId)).snapshotChanges();
   }
 
   getOffertListForOneUser(userId: string){
-    return this.angularFirestore.collection("offerts", ref => ref.where('user_id','==',userId)).snapshotChanges();
+    return this.angularFirestore.collection("offerts", ref => ref.where('id_user','==',userId)).snapshotChanges();
   }
 
   getOffertsBySearch(search)
   {
     return this.angularFirestore
-    .collection<Offert>('offerts', ref => { return ref.orderBy('user_id').startAt(search).endAt(search+'\uf8ff') })
+    .collection<Offert>('offerts', ref => { return ref.orderBy('id_user').startAt(search).endAt(search+'\uf8ff') })
     .snapshotChanges();
   }
 
   getOffertsBySearchByProduct(search)
   {
     return this.angularFirestore
-    .collection<Offert>('offerts', ref => { return ref.orderBy('product_id').startAt(search).endAt(search+'\uf8ff') })
+    .collection<Offert>('offerts', ref => { return ref.orderBy('id_product').startAt(search).endAt(search+'\uf8ff') })
     .snapshotChanges();
   }
 
