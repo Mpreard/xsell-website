@@ -44,4 +44,18 @@ export class ProductService {
       .doc(product.id)
       .delete();
   }
+
+  getProductSold()
+  {
+    return this.angularFirestore
+    .collection("products", ref => ref.where('sold','==',true))
+    .snapshotChanges();
+  }
+
+  getProductNoSold()
+  {
+    return this.angularFirestore
+    .collection("products", ref => ref.where('sold','!=',true))
+    .snapshotChanges();
+  }
 }

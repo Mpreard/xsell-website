@@ -2,10 +2,10 @@
     <div class="container mt-5" style="max-width: 75%; ">
         <div class="row mb-4">
             <div class="col-sm-6">
-                <h2> Ventes</h2>
+                <h2> Offers </h2>
                 <div class="chartjs-block">
                     <canvas baseChart 
-                        [datasets]="lineChartData" 
+                        [datasets]="lineChartDataOffers" 
                         [labels]="lineChartLabels" 
                         [options]="lineChartOptions"
                         [legend]="lineChartLegend" 
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <h2> Offres</h2>
+                <h2> Sold </h2>
                 <canvas baseChart 
                     [datasets]="barChartData"
                     [labels]="barChartLabels"
@@ -31,7 +31,7 @@
                 <h2> Products</h2>
                 <div class="chartjs-block">
                     <canvas baseChart 
-                        [datasets]="lineChartData" 
+                        [datasets]="lineChartDataProducts" 
                         [labels]="lineChartLabels" 
                         [options]="lineChartOptions"
                         [legend]="lineChartLegend" 
@@ -41,15 +41,17 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <h2> Users</h2>
-                <canvas baseChart 
-                    [datasets]="barChartData"
-                    [labels]="barChartLabels"
-                    [options]="barChartOptions"
-                    [plugins]="barChartPlugins"
-                    [legend]="barChartLegend"
-                    [type]="barChartType">
-              </canvas>
+                <h2> Users </h2>
+                <div class="chartjs-block">
+                    <canvas baseChart 
+                        [datasets]="lineChartDataUsers" 
+                        [labels]="lineChartLabels" 
+                        [options]="lineChartOptions"
+                        [legend]="lineChartLegend" 
+                        [type]="lineChartType" 
+                        [plugins]="lineChartPlugins">
+                    </canvas>
+                </div>
             </div>
         </div>
     </div>
