@@ -31,7 +31,6 @@ export class UserComponent implements OnInit {
         this.productCount(this.id);
         this.products();
         this.userRef = res[0];
-        console.log(this.userRef)
       }
     })
   }

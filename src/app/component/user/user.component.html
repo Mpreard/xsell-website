@@ -111,7 +111,7 @@
                 <tr *ngFor="let product of Products let i = index">
                     <th>{{ product.id }}</th>
                     <td>{{ product.name }}</td>
-                    <td>{{ product.description }}</td>
+                    <td>{{ product.description | slice:0:50}} ...</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.best_offer_id }}</td>
                     <td class="d-flex">
