@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
         this.offerts(this.id);
         this.offertCount(this.id);
         this.productCount(this.id);
-        this.products();
+        this.products(this.id);
         this.userRef = res[0];
       }
     })
@@ -113,9 +113,9 @@ export class UserComponent implements OnInit {
     })
   }
 
-  products() 
+  products(id) 
   {
-    this.ProductService.getProductList().subscribe(res => {
+    this.ProductService.getProductByUser(id).subscribe(res => {
       this.Products = res.map(e => {
         return {
           id: e.payload.doc.id,
