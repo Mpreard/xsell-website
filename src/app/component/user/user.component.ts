@@ -44,7 +44,7 @@ export class UserComponent implements OnInit {
           id_user: e.payload.doc.get('id_user'),
           id_product: e.payload.doc.get('id_product'),
           date: e.payload.doc.get('date'),
-          best_offert: e.payload.doc.get('best_offert'),
+          best_offert: e.payload.doc.get('best_offer'),
         } as Offert
       })
     });
@@ -60,7 +60,7 @@ export class UserComponent implements OnInit {
             id_user: e.payload.doc.get('id_user'),
             id_product: e.payload.doc.get('id_product'),
             date: e.payload.doc.get('date'),
-            best_offert: e.payload.doc.get('best_offert'),
+            best_offert: e.payload.doc.get('best_offer'),
           } as Offert
         })
       })
@@ -122,7 +122,7 @@ export class UserComponent implements OnInit {
           name: e.payload.doc.get('name'),
           description: e.payload.doc.get('description'),
           price: e.payload.doc.get('price'),
-          best_offer_id: e.payload.doc.get('best_offer_id'),
+          best_offert: e.payload.doc.get('best_offer'),
           user_id: e.payload.doc.get('user_id'),
           create_at: e.payload.doc.get('create_at'),
           ref: e.payload.doc.get('ref'),

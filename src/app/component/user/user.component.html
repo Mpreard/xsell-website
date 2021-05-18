@@ -78,10 +78,10 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let offert of Offerts">
-                            <td>{{ offert.id }}</td>
+                            <th>{{ offert.id }}</th>
                             <td><a [routerLink]="['/product', offert.id_product]">{{ offert.id_product }} <i class="bi bi-chevron-down"></i>
                             </a></td>
-                            <td>{{ offert.best_offer }}</td>
+                            <td>{{ offert.best_offert }}</td>
                             <td class="d-flex">
                                 <button (click)="confirmDeleteOffert(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
                                 <button (click)="showOffert(offert)" type="button" class="btn btn-warning">Show</button>
@@ -109,11 +109,11 @@
               </thead>
               <tbody>
                 <tr *ngFor="let product of Products let i = index">
-                    <th>{{ product.id }}</th>
+                    <th><a [routerLink]="['/product', product.id]">{{ product.id }} <i class="bi bi-chevron-down"></i></a></th>
                     <td>{{ product.name }}</td>
                     <td>{{ product.description | slice:0:50}} ...</td>
                     <td>{{ product.price }}</td>
-                    <td>{{ product.best_offer_id }}</td>
+                    <td>{{ product.best_offert }}</td>
                     <td class="d-flex">
                         <button (click)="confirmDeleteProduct(product)" type="button" class="btn btn-danger mr-2">Delete</button>
                         <button  [routerLink]="['/product', product.id]" type="button" class="btn btn-warning">Show</button>

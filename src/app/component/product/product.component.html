@@ -64,7 +64,7 @@
                             <td>{{ offert.id }}</td>
                             <td><a [routerLink]="['/user', offert.id_user]">{{ offert.id_user }} <i class="bi bi-chevron-down"></i>
                             </a></td>
-                            <td>{{ offert.best_offer }}</td>
+                            <td>{{ offert.best_offert }}</td>
                             <td class="d-flex">
                                 <button (click)="confirmDelete(offert)" type="button" class="btn btn-danger mr-2">Delete</button>
                                 <button (click)="showOffert(offert)" type="button" class="btn btn-warning">Show</button>

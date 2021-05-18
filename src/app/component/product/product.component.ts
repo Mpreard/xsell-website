@@ -45,7 +45,7 @@ export class ProductComponent implements OnInit {
           id_user: e.payload.doc.get('id_user'),
           id_product: e.payload.doc.get('id_product'),
           date: e.payload.doc.get('date'),
-          best_offert: e.payload.doc.get('best_offert'),
+          best_offert: e.payload.doc.get('best_offer'),
         } as Offert
       })
     });

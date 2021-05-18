@@ -8,6 +8,6 @@ export class Product {
     condition: number;
     sold: boolean;
     ref: string;
-    best_offer_id: number;
+    best_offert: number;
     user_id: string
 }
