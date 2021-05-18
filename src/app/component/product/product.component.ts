@@ -101,7 +101,7 @@ export class ProductComponent implements OnInit {
                 <li class="mb-2"> <b>Offert_id</b> : ` + offert.id + `</li>
                 <li class="mb-2"> <b>User_id</b> : ` + offert.id_user + `</li> 
                 <li class="mb-2"> <b>Product_id</b> : ` + offert.id_product + `</li> 
-                <li class="mb-2"> <b>Price</b> : ` + offert.best_offer + `</li>  
+                <li class="mb-2"> <b>Price</b> : ` + offert.best_offert + `</li>  
              </ul>`,
     })
   }

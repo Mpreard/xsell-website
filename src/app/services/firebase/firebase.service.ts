@@ -19,25 +19,10 @@ export class FirebaseService {
   async signin(email: string, password: string){
     await this.firebaseAuth.signInWithEmailAndPassword(email, password)
     .then(res=>{
-      this.UserService.getUserByEmail(email).subscribe(data => {
-        this.Admin = data.map(e => {
-          this.role = e.payload.doc.get('role')
-          console.log(this.role)
-          if(this.role === 1){
-            this.isLoggedIn = true;
-            localStorage.setItem('user', JSON.stringify(res.user));
-          } else {
-            this.logout()
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Something went wrong!'
-            })
-          }
+          this.isLoggedIn = true;
+          localStorage.setItem('user', JSON.stringify(res.user));
         }) 
-      }) 
-    })
-  }
+    }
 
   logout(){
     this.firebaseAuth.signOut();
